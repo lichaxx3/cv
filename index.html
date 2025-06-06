@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Imam Dermawan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .cv-container {
+            max-width: 210mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #333;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .title {
+            font-size: 1.2em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: #f5f5f5;
+            padding: 25px 20px;
+            border-right: 1px solid #ddd;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #666;
+        }
+        
+        .profile-text {
+            font-size: 0.95em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #555;
+        }
+        
+        .skill-category {
+            margin-bottom: 25px;
+        }
+        
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .skill-category h4 {
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            font-size: 0.9em;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border-left: 3px solid #333;
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            font-size: 1em;
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        .duration {
+            font-size: 0.9em;
+            color: #888;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .job-description {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .job-description li {
+            padding: 6px 0;
+            font-size: 0.9em;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+        
+        .job-description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .school {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .degree {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .education-duration {
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        .certification-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .cert-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .cert-description {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .language-item:last-child {
+            border-bottom: none;
+        }
+        
+        .language-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .language-level {
+            font-size: 0.9em;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0;
+                max-width: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .duration {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">IMAM DERMAWAN</h1>
+                <p class="title">IT Support, Data Entry & Digital Content Creator</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+62 813 8041 2574</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Bogor, Jawa Barat</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉</span>
+                        <span>imamdermawan100307@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📷</span>
+                        <span>@idena.lens</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2 class="section-title">Keahlian Teknis</h2>
+                    <div class="skill-category">
+                        <h4>Digital Media</h4>
+                        <ul class="skill-list">
+                            <li>Fotografi Digital & Komersial</li>
+                            <li>Video Editing (CapCut)</li>
+                            <li>Content Creation</li>
+                            <li>Product Photography</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Programming</h4>
+                        <ul class="skill-list">
+                            <li>HTML & CSS</li>
+                            <li>JavaScript</li>
+                            <li>Web Development</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Office & Data</h4>
+                        <ul class="skill-list">
+                            <li>Data Entry & Processing</li>
+                            <li>Sales Software Operation</li>
+                            <li>Administrative Support</li>
+                            <li>Inventory Management</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Soft Skills</h2>
+                    <ul class="skill-list">
+                        <li>Public Speaking</li>
+                        <li>Customer Service Excellence</li>
+                        <li>Team Collaboration</li>
+                        <li>Self-directed Learning</li>
+                        <li>Creative Problem Solving</li>
+                        <li>Technology Adaptation</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Bahasa</h2>
+                    <div class="language-item">
+                        <span class="language-name">Bahasa Indonesia</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <span class="language-level">Intermediate</span>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2 class="section-title">Tentang Saya</h2>
+                    <p class="profile-text">
+                        Profesional muda yang berdedikasi dengan passion kuat dalam teknologi visual dan digital. Memiliki pengalaman komprehensif dalam fotografi komersial, videografi, dan pengembangan konten kreatif. Terampil dalam pemrograman web dasar dan manajemen data, dengan track record yang terbukti dalam lingkungan customer service dan administrasi. Kombinasi unik antara kreativitas visual dan kemampuan teknis, didukung oleh kemampuan komunikasi yang excellent dan adaptabilitas tinggi terhadap teknologi baru.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Pengalaman</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Staff Inbound (Harian Lepas)</div>
+                                <div class="company">Shopee Express - Gudang</div>
+                            </div>
+                            <div class="duration">2024 - Present</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Mengelola proses penerimaan dan distribusi paket dengan akurasi tinggi</li>
+                            <li>Mengoptimalkan sistem penataan dan organisasi area inbound</li>
+                            <li>Mencapai target operasional sesuai standar tim leader</li>
+                            <li>Berkolaborasi efektif dalam lingkungan kerja yang dinamis</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Karyawan Toko</div>
+                                <div class="company">Piram Petshop</div>
+                            </div>
+                            <div class="duration">Jun 2024 - Apr 2025</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Memberikan layanan pelanggan premium dengan tingkat kepuasan tinggi</li>
+                            <li>Mengelola sistem inventory dan data penjualan menggunakan software khusus</li>
+                            <li>Mengoptimalkan visual merchandising dan kategori produk</li>
+                            <li>Memberikan konsultasi produk dan perawatan hewan peliharaan</li>
+                            <li>Mengembangkan content visual untuk promosi dan dokumentasi produk</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">PKL - Data Entry Specialist</div>
+                                <div class="company">IPB (Institut Pertanian Bogor)</div>
+                            </div>
+                            <div class="duration">Okt - Des 2023</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Mengelola input data pengeluaran kantor dengan akurasi 99.9%</li>
+                            <li>Mengembangkan sistem pelaporan bulanan untuk administrasi</li>
+                            <li>Mengorganisir dan mendigitalkan dokumen transaksi</li>
+                            <li>Memberikan dukungan administratif untuk operasional kantor</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Digital Content Creator</div>
+                                <div class="company">Freelance Photography</div>
+                            </div>
+                            <div class="duration">2023 - Present</div>
+                        </div>
+                        <ul class="job-description">
+                            <li>Mengembangkan portfolio fotografi dalam berbagai genre dan konsep</li>
+                            <li>Menguasai teknik editing digital untuk mobile dan desktop platform</li>
+                            <li>Menciptakan konten visual yang engaging untuk berbagai media</li>
+                            <li>Mengeksplorasi tren fotografi dan videografi terkini</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Pendidikan</h2>
+                    <div class="education-item">
+                        <div class="school">SMK Golden Bogor</div>
+                        <div class="degree">Teknik Komputer dan Jaringan</div>
+                        <div class="education-duration">2022 - 2025</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Sertifikasi</h2>
+                    <div class="certification-item">
+                        <div class="cert-title">Sertifikat Praktek Kerja Lapangan (PKL) - IPB</div>
+                        <div class="cert-description">
+                            Menyelesaikan program PKL dengan fokus pada manajemen data dan administrasi perkantoran, 
+                            dengan evaluasi excellent dalam akurasi dan efisiensi kerja.
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
